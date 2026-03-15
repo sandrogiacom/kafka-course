@@ -1,4 +1,4 @@
-# Kafka Course - Apache Kafka para Iniciantes
+# Apache Kafka para Iniciantes
 
 Este repositório contém materiais e configurações para acompanhar o curso "Apache Kafka para Iniciantes" disponível na Udemy: [Link do curso](https://gbtech.udemy.com/course/apache-kafka-para-iniciantes/)
 
