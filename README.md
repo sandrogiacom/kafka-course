@@ -80,12 +80,41 @@ Para executar:
 
 Isso enviará uma mensagem para o tópico `user-events`.
 
+### Consumidor em Kotlin
+
+O diretório `kafka-kotlin-consumer/` contém um exemplo de um consumidor Kafka escrito em Kotlin.
+
+Para executar:
+
+1. Certifique-se de que o ambiente Kafka está rodando (`docker-compose up -d` em `local-env/`).
+
+2. Crie o tópico `user-events` (se ainda não existir):
+
+   ```bash
+   kafka-topics --bootstrap-server localhost:29092 --topic user-events --create --partitions 3 --replication-factor 1
+   ```
+
+3. Navegue para o diretório do projeto:
+
+   ```bash
+   cd kafka-kotlin-consumer
+   ```
+
+4. Compile e execute:
+
+   ```bash
+   ./mvnw clean compile exec:java -Dexec.mainClass="com.example.kafka.ConsumerKt"
+   ```
+
+O consumidor ficará aguardando mensagens do tópico `user-events`. Em outro terminal, você pode executar o produtor para testar a comunicação entre eles.
+
 ## Estrutura do Projeto
 
 - `local-env/`: Configurações do ambiente local
   - `docker-compose.yml`: Definição dos serviços Kafka e Zookeeper usando imagens Confluent (v7.4.0)
   - `kafka-cli.txt`: Lista de comandos Kafka para referência rápida
 - `kafka-kotlin-producer/`: Exemplo de produtor Kafka em Kotlin
+- `kafka-kotlin-consumer/`: Exemplo de consumidor Kafka em Kotlin
 
 ## Debugging e Troubleshooting
 
